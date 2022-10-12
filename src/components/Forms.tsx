@@ -5,9 +5,13 @@ interface FormState {
     inputvalues: Sub
 }
 
+interface FormProps {
+    onNewSub: (newSub: Sub) => void
+}
 
 
-function Forms() {
+
+function Forms({onNewSub}: FormProps) {
     const [inputvalues, setInputvalues] = useState<FormState['inputvalues']>({
         nick: '',
         subMonths: 0,
@@ -15,8 +19,9 @@ function Forms() {
         description: ''
     })
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e : React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        onNewSub(inputvalues)
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
