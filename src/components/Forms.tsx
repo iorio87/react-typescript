@@ -5,15 +5,16 @@ interface FormState {
     inputvalues: Sub
 }
 
+const INITIAL_STATE = {
+    nick: '',
+    subMonths: 0,
+    avatar: '',
+    description: ''
+}
 
 
 function Forms() {
-    const [inputvalues, setInputvalues] = useState<FormState['inputvalues']>({
-        nick: '',
-        subMonths: 0,
-        avatar: '',
-        description: ''
-    })
+    const [inputvalues, setInputvalues] = useState<FormState['inputvalues']>(INITIAL_STATE)
 
     const handleSubmit = () => {
 
