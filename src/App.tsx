@@ -33,12 +33,16 @@ function App() {
   useEffect(() => {
     setSubs(INITIAL_STATE) 
   }, [])
+
+  const handleNewSub = (newSub: Sub): void => {
+    setSubs(subs => [...subs, newSub])
+  }
   
 
   return (
     <div className="App container m-auto w-80">
       <List subs={subs}/>
-      <Forms/>
+      <Forms onNewSub={handleNewSub}/>
     </div>
   );
 }
